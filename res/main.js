@@ -93,8 +93,13 @@ requirejs(["jquery.min"], function(jQuery) {
       //console.log("==result==");
 
       $.each(bufView, function(i, data) {
-        $("#center textarea").append("[" + i + "]" +
-          data + " ");
+		var value = "0x";
+		if( data <= 15 ){
+          value += "0" + data.toString(16);
+		} else {
+          value += data.toString(16);
+		}
+		$("#center textarea").append(value + " ");
       });
       $("#center textarea").append("\n\n");
     });
