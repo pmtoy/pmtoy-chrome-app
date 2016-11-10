@@ -1,0 +1,24 @@
+{
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "manifest_version": 2,
+  "name": "PMToy",
+  "version": "0.1",
+
+  "description": "Show indoor air quality, By PMToy hardware.",
+  "icons": {"128": "res/128.png"},
+
+  "author": "HanChen",
+  "permissions": [
+    "https://ajax.googleapis.com/*",
+    "serial",
+    "usb",
+    {"usbDevices": [{
+      "vendorId": 483,
+      "productId": 5740}]
+    }
+  ]
+}

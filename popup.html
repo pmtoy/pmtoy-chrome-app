@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>PMToy</title>
+		<script type="text/javascript" src="./res/require.js" data-main="./res/main.js"></script>
+		<link rel="stylesheet" href="./res/style.css"></link>
+	</head>
+	<body>
+		<div id="top">
+			<form action="#" id="port-conf">
+				<select name="port-path"></select>
+				<select name="port-baud-rate">
+					<option value="9600" >9600</option>
+					<option value="115200" >115200</option>
+				</select>
+				<input type="button" name="connect" value="Connect" />
+				<input type="button" name="disconnect" value="Disonnect" />
+				<input type="button" name="close" value="X" />
+			</form>
+		</div>
+		<div id="center">
+			<textarea cols="46" rows="14" readonly="readonly">
+			</textarea>
+		</div>
+		<div id="bottom">
+			<div id="send-box">
+				<input type="text" name="send-data" ></input>
+				<input type="button" name="send-bottom" value="Send"></input>
+			</div>
+			<div id="status">
+			</div>
+		</div>
+	</body>
+</html>

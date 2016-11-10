@@ -1,0 +1,11 @@
+#top {
+  float:right;
+}
+#top select{
+  margin-right:5px;
+}
+#bottom #send-box input[name=send-data]{
+	margin-top:5px;
+	margin-bottom:5px;
+	width:290px;
+}
