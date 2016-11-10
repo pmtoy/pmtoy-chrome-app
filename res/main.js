@@ -67,7 +67,7 @@ requirejs(["jquery.min"], function(jQuery) {
 						int8View[i] = data;
 					});
 
-					console.log("Send len: ["+buf.length+"] ");
+					console.log("Send len: ["+bufArr.length+"] ");
 					chrome.serial.send(connId, buf, function(info){
 						$("#center textarea").append("\n\n");
 						$('#bottom #status').html("send data success.");
