@@ -86,20 +86,18 @@ requirejs(["jquery.min"], function(jQuery) {
       });
 
     chrome.serial.onReceive.addListener(function(stream) {
-      //console.log(stream);
       var bufView = new Uint8Array(stream.data);
       console.log("Receive len: [" + bufView.length +
         "] ");
-      //console.log("==result==");
 
       $.each(bufView, function(i, data) {
-		var value = "0x";
-		if( data <= 15 ){
+        var value = "0x";
+        if (data <= 15) {
           value += "0" + data.toString(16);
-		} else {
+        } else {
           value += data.toString(16);
-		}
-		$("#center textarea").append(value + " ");
+        }
+        $("#center textarea").append(value + " ");
       });
       $("#center textarea").append("\n\n");
     });
