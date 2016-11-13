@@ -7,7 +7,7 @@
   </head>
   <body>
     <nav class="navbar navbar-light bg-faded">
-      <form class="form-inline float-xs-right">
+      <form class="form-inline float-xs-right" action="#">
         <select  class="custom-select" name="port-path"></select>
         <select  class="custom-select" name="port-baud-rate">
           <option value="9600" >9600</option>
@@ -37,19 +37,19 @@
           </div>
           
           <div class="send-box">
-            <form class="send-box-ch1 form-inline">
+            <form class="send-box-ch1 form-inline"  action="#" >
               <div class="form-group">
                 <label class="sr-only" for="send-data-ch1">Send Data</label>
                 <input class="form-control" id="send-data-ch1" type="text" name="send-data" />
               </div>
-              <button type="submit" class="btn btn-primary send-button">Send</button>
+              <button type="button" class="btn btn-primary send-button">Send</button>
             </form>
-            <form class="send-box-ch2 form-inline">
+            <form class="send-box-ch2 form-inline"  action="#">
               <div class="form-group">
                 <label class="sr-only" for="send-data-ch2">Send Data</label>
                 <input class="form-control"   id="send-data-ch2" type="text" name="send-data" />
               </div>
-              <button type="submit" class="btn btn-primary send-button">Send</button>
+              <button type="button" class="btn btn-primary send-button">Send</button>
             </form>
           </div>
           
