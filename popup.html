@@ -18,18 +18,15 @@
       </form>
     </nav>
     <div id="tabs">
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#io" role="tab">Serial IO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link"  data-toggle="tab" href="#now" role="tab">Now</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" data-toggle="tab" href="#trend" role="tab">Trend</a>
         </li>
       </ul>
       <div class="tab-content">
@@ -56,6 +53,12 @@
             </form>
           </div>
           
+        </div>
+        <div class="tab-pane active" id="now" role="tabpanel">
+          now
+        </div>
+        <div class="tab-pane active" id="trend" role="tabpanel">
+          chart
         </div>
       </div>
     </div>
