@@ -16,7 +16,8 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
       hasDev = true;
       $("nav select[name=port-path]").append($(
         "<option/>").html(dev.path).val(dev.path));
-    })
+    });
+    
     $("nav input[name=connect]").prop("disabled", !hasDev);
 
     // event bind
@@ -28,13 +29,14 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
           $("nav input[name=connect]").prop(
             "disabled", !hasDev);
           $("nav input[name=disconnect]").hide();
+          $("nav input[name=connect]").show();
           connId = false;
-        })
+        });
       }
     });
 
     $("nav input[name=connect]").on('click', function() {
-      $("#center textarea").html('');
+      $(".revc-box textarea").html('');
       chrome.serial.connect($(
           "nav select[name=port-path]").val(), {
           'bitrate': parseInt($(
@@ -43,20 +45,19 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
         function(connInfo) {
           $("nav input[name=connect]").prop("disabled",
             true);
+          $("nav input[name=connect]").hide();
           $("nav input[name=disconnect]").show();
           $('#bottom #status').html("connect success.");
           connId = connInfo.connectionId;
-
         });
     });
 
 
-    $('#bottom #send-box input[name=send-bottom]').on('click',
+    $('.send-box .send-button').on('click',
       function() {
-        var value = $(
-          '#bottom #send-box input[name=send-data]').val();
+        var value = $(this).parent().find('input').val();
         if (value && connId) {
-          var bufArr = new Array();
+          var bufArr = [];
           $.each(value.split(" "), function(i, item) {
             if (item) {
               bufArr.push(parseInt(item));
@@ -66,7 +67,7 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
             var buf = new ArrayBuffer(bufArr.length);
             var int8View = new Uint8Array(buf);
             $.each(bufArr, function(i, data) {
-              $("#center textarea").append("[" + i +
+              $(".revc-box textarea").append("[" + i +
                 "]" + data + " ");
               int8View[i] = data;
             });
@@ -74,7 +75,7 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
             console.log("Send len: [" + bufArr.length +
               "] ");
             chrome.serial.send(connId, buf, function(info) {
-              $("#center textarea").append("\n\n");
+              $(".revc-box textarea").append("\n\n");
               $('#bottom #status').html(
                 "send data success.");
             });
@@ -95,9 +96,9 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
         } else {
           value += data.toString(16);
         }
-        $("#center textarea").append(value + " ");
+        $(".revc-box textarea").append(value + " ");
       });
-      $("#center textarea").append("\n\n");
+      $(".revc-box textarea").append("\n\n");
     });
   })
 });

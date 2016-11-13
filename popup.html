@@ -1,39 +1,68 @@
 <html>
-	<head>
-		<title>PMToy</title>
-		<script type="text/javascript" src="./res/vendor/js/require.js" data-main="./res/main.js"></script>
-		<link rel="stylesheet" href="./res/vendor/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="./res/style.css"/>
-	</head>
-	<body>
-		<nav class="navbar navbar-light bg-faded">
-			<form class="form-inline float-xs-right">
-				<select  class="custom-select" name="port-path"></select>
-				<select  class="custom-select" name="port-baud-rate">
-					<option value="9600" >9600</option>
-					<option value="115200" >115200</option>
-				</select>
-				<input class="btn btn-outline-success" type="button" name="connect" value="Connect" />
-				<input class="btn btn-outline-info" type="button" name="disconnect" value="Disonnect" />
-			</form>
-		</nav>
-
-		<div id="tabs">
-			<textarea cols="46" rows="14" readonly="readonly">
-			</textarea>
-			<div id="send-box-ch1">
-				<input type="text" name="send-data" />
-				<input type="button" name="send-bottom" value="Send" />
-			</div>
-						<div id="send-box-ch2">
-				<input type="text" name="send-data" />
-				<input type="button" name="send-bottom" value="Send" />
-			</div>
-		</div>
-
-		<div id="bottom">
-			<div id="status">
-			</div>
-		</div>
-	</body>
+  <head>
+    <title>PMToy</title>
+    <script type="text/javascript" src="./res/vendor/js/require.js" data-main="./res/main.js"></script>
+    <link rel="stylesheet" href="./res/vendor/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./res/style.css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-faded">
+      <form class="form-inline float-xs-right">
+        <select  class="custom-select" name="port-path"></select>
+        <select  class="custom-select" name="port-baud-rate">
+          <option value="9600" >9600</option>
+          <option value="115200" >115200</option>
+        </select>
+        <input class="btn btn-outline-success" type="button" name="connect" value=" Connect  " />
+        <input class="btn btn-outline-info" type="button" name="disconnect" value="Disconnect" />
+      </form>
+    </nav>
+    <div id="tabs">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#io" role="tab">Serial IO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="io" role="tabpanel">
+          <div class="revc-box">
+            <textarea cols="64" rows="12" readonly="readonly">
+            </textarea>
+          </div>
+          
+          <div class="send-box">
+            <form class="send-box-ch1 form-inline">
+              <div class="form-group">
+                <label class="sr-only" for="send-data-ch1">Send Data</label>
+                <input class="form-control" id="send-data-ch1" type="text" name="send-data" />
+              </div>
+              <button type="submit" class="btn btn-primary send-button">Send</button>
+            </form>
+            <form class="send-box-ch2 form-inline">
+              <div class="form-group">
+                <label class="sr-only" for="send-data-ch2">Send Data</label>
+                <input class="form-control"   id="send-data-ch2" type="text" name="send-data" />
+              </div>
+              <button type="submit" class="btn btn-primary send-button">Send</button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div id="bottom">
+      <div id="status">
+      </div>
+    </div>
+  </body>
 </html>

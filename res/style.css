@@ -1,11 +1,22 @@
-#top {
-  float:right;
+
+
+.revc-box {
+  padding: 0.5rem;
 }
-#top select{
-  margin-right:5px;
+.send-box{
+  padding: 0.5rem;
+  padding-bottom: 0rem;
 }
-#bottom #send-box input[name=send-data]{
-	margin-top:5px;
-	margin-bottom:5px;
-	width:290px;
+.send-box .form-group {
+	display: inline-block;
+	width: 80%;
+}
+
+
+.send-box .send-box-ch2{
+  padding-bottom: 0rem;
+}
+
+.send-box .send-box-ch2 .form-group{
+  margin-bottom: 0rem;
 }
