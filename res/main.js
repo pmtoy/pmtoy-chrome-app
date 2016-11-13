@@ -17,9 +17,9 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
     $.each(bufview, function(i, data) {
         var value = "0x";
         if (data <= 15) {
-          value += "0" + data.toString(16);
+          value += "0" + data.toString(16).toUpperCase();
         } else {
-          value += data.toString(16);
+          value += data.toString(16).toUpperCase();
         }
         $(".revc-box textarea").append(value + " ");
     });
