@@ -1,57 +1,55 @@
 requirejs.config({
   appDir: ".",
-  baseUrl: "res",
+  baseUrl: "res/vendor/js",
 });
 
-requirejs(["jquery.min"], function(jQuery) {
+requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
   "use strict";
 
-  $("#top input[name=disconnect]").hide();
-  $("#top input[name=connect]").prop("disabled", true);
+  $("nav input[name=disconnect]").hide();
+  $("nav input[name=connect]").prop("disabled", true);
   chrome.serial.getDevices(function(devices) {
     var hasDev = false;
     var connId = false;
 
     $.each(devices, function(i, dev) {
       hasDev = true;
-      $("#top select[name=port-path]").append($(
+      $("nav select[name=port-path]").append($(
         "<option/>").html(dev.path).val(dev.path));
     })
-    $("#top input[name=connect]").prop("disabled", !hasDev);
+    $("nav input[name=connect]").prop("disabled", !hasDev);
 
     // event bind
-    $("#top input[name=disconnect]").on('click', function() {
+    $("nav input[name=disconnect]").on('click', function() {
       if (connId) {
         chrome.serial.disconnect(connId, function() {
           $('#bottom #status').html(
             "disconnect success.");
-          $("#top input[name=connect]").prop(
+          $("nav input[name=connect]").prop(
             "disabled", !hasDev);
-          $("#top input[name=disconnect]").hide();
+          $("nav input[name=disconnect]").hide();
           connId = false;
         })
       }
     });
 
-    $("#top input[name=connect]").on('click', function() {
+    $("nav input[name=connect]").on('click', function() {
       $("#center textarea").html('');
       chrome.serial.connect($(
-          "#top select[name=port-path]").val(), {
+          "nav select[name=port-path]").val(), {
           'bitrate': parseInt($(
-            "#top select[name=port-baud-rate]").val())
+            "nav select[name=port-baud-rate]").val())
         },
         function(connInfo) {
-          $("#top input[name=connect]").prop("disabled",
+          $("nav input[name=connect]").prop("disabled",
             true);
-          $("#top input[name=disconnect]").show();
+          $("nav input[name=disconnect]").show();
           $('#bottom #status').html("connect success.");
           connId = connInfo.connectionId;
 
         });
     });
-    $("#top input[name=close]").on('click', function() {
-      window.close();
-    });
+
 
     $('#bottom #send-box input[name=send-bottom]').on('click',
       function() {

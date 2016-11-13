@@ -1,31 +1,37 @@
 <html>
 	<head>
 		<title>PMToy</title>
-		<script type="text/javascript" src="./res/require.js" data-main="./res/main.js"></script>
-		<link rel="stylesheet" href="./res/style.css"></link>
+		<script type="text/javascript" src="./res/vendor/js/require.js" data-main="./res/main.js"></script>
+		<link rel="stylesheet" href="./res/vendor/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="./res/style.css"/>
 	</head>
 	<body>
-		<div id="top">
-			<form action="#" id="port-conf">
-				<select name="port-path"></select>
-				<select name="port-baud-rate">
+		<nav class="navbar navbar-light bg-faded">
+			<form class="form-inline float-xs-right">
+				<select  class="custom-select" name="port-path"></select>
+				<select  class="custom-select" name="port-baud-rate">
 					<option value="9600" >9600</option>
 					<option value="115200" >115200</option>
 				</select>
-				<input type="button" name="connect" value="Connect" />
-				<input type="button" name="disconnect" value="Disonnect" />
-				<input type="button" name="close" value="X" />
+				<input class="btn btn-outline-success" type="button" name="connect" value="Connect" />
+				<input class="btn btn-outline-info" type="button" name="disconnect" value="Disonnect" />
 			</form>
-		</div>
-		<div id="center">
+		</nav>
+
+		<div id="tabs">
 			<textarea cols="46" rows="14" readonly="readonly">
 			</textarea>
-		</div>
-		<div id="bottom">
-			<div id="send-box">
-				<input type="text" name="send-data" ></input>
-				<input type="button" name="send-bottom" value="Send"></input>
+			<div id="send-box-ch1">
+				<input type="text" name="send-data" />
+				<input type="button" name="send-bottom" value="Send" />
 			</div>
+						<div id="send-box-ch2">
+				<input type="text" name="send-data" />
+				<input type="button" name="send-bottom" value="Send" />
+			</div>
+		</div>
+
+		<div id="bottom">
 			<div id="status">
 			</div>
 		</div>
