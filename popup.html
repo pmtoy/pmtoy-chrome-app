@@ -20,7 +20,7 @@
     <div id="tabs">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#io" role="tab">Serial IO</a>
+          <a class="nav-link active" data-toggle="tab" href="#raw" role="tab">Raw</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"  data-toggle="tab" href="#now" role="tab">Now</a>
@@ -30,7 +30,7 @@
         </li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane active" id="io" role="tabpanel">
+        <div class="tab-pane active" id="raw" role="tabpanel">
           <div class="revc-box">
             <textarea cols="64" rows="11" readonly="readonly">
             </textarea>
@@ -62,9 +62,10 @@
         </div>
       </div>
     </div>
-    <hr/>
+    <hr class="mini-split" />
     <div id="bottom">
-      <div id="status">
+      <div id="status" class="alert alert-success" role="alert">
+        UI Ready.
       </div>
     </div>
   </body>

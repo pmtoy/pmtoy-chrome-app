@@ -8,6 +8,8 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
 
   $("nav input[name=disconnect]").hide();
   $("nav input[name=connect]").prop("disabled", true);
+  $
+  
   chrome.serial.getDevices(function(devices) {
     var hasDev = false;
     var connId = false;
@@ -67,8 +69,7 @@ requirejs(["jquery.min", 'bootstrap.min'], function(jQuery, Bootstrap) {
             var buf = new ArrayBuffer(bufArr.length);
             var int8View = new Uint8Array(buf);
             $.each(bufArr, function(i, data) {
-              $(".revc-box textarea").append("[" + i +
-                "]" + data + " ");
+              $(".revc-box textarea").append(" 0x"+ data.toString(16));
               int8View[i] = data;
             });
 
